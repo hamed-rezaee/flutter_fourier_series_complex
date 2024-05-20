@@ -24,8 +24,8 @@ class ComplexNumber {
   Offset toOffset() => Offset(real, imaginary);
 }
 
-class DFTResultModel {
-  const DFTResultModel({
+class DFTResult {
+  const DFTResult({
     required this.complex,
     required this.frequency,
     required this.amplitude,

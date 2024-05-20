@@ -16,7 +16,7 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  late final List<DFTResultModel> fourier;
+  late final List<DFTResult> fourier;
 
   double time = 0;
   int counter = 0;

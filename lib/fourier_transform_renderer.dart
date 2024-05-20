@@ -11,7 +11,7 @@ class FourierTransformRenderer extends CustomPainter {
   });
 
   final double time;
-  final List<DFTResultModel> fourier;
+  final List<DFTResult> fourier;
   final int waveLength;
 
   static List<Offset> wave = [];
@@ -55,7 +55,7 @@ class FourierTransformRenderer extends CustomPainter {
     double x,
     double y,
     double rotation,
-    List<DFTResultModel> fourier,
+    List<DFTResult> fourier,
   ) {
     return Offset.zero;
   }
@@ -65,7 +65,7 @@ class FourierTransformRenderer extends CustomPainter {
     double offsetX,
     double offsetY,
     double rotation,
-    List<DFTResultModel> fourier,
+    List<DFTResult> fourier,
   ) {
     var x = offsetX;
     var y = offsetY;

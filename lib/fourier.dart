@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:flutter_fourier_series/models.dart';
 
 class Fourier {
-  static List<DFTResultModel> discreteFourierTransform(
+  static List<DFTResult> discreteFourierTransform(
     List<ComplexNumber> input,
   ) {
     final length = input.length;
-    final results = <DFTResultModel>[];
+    final results = <DFTResult>[];
 
     for (var frequency = 0; frequency < length; frequency++) {
       var sum = const ComplexNumber(real: 0, imaginary: 0);
@@ -26,7 +26,7 @@ class Fourier {
       final phase = atan2(sum.imaginary, sum.real);
 
       results.add(
-        DFTResultModel(
+        DFTResult(
           complex: sum,
           frequency: frequency,
           amplitude: amplitude,
