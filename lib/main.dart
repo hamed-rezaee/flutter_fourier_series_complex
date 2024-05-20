@@ -19,20 +19,22 @@ class _MainAppState extends State<MainApp> {
   late final List<DFTResult> fourier;
 
   double time = 0;
-  int counter = 0;
 
   @override
   void initState() {
     super.initState();
 
     fourier = Fourier.discreteFourierTransform(
-      drawingSample
-          .map((point) => ComplexNumber(real: point.dx, imaginary: point.dy))
+      flutterLogo
+          .map(
+            (point) =>
+                ComplexNumber(real: point.dx / 5, imaginary: point.dy / 5),
+          )
           .toList(),
     )..sort((a, b) => b.amplitude.compareTo(a.amplitude));
 
-    Stream<void>.periodic(const Duration(milliseconds: 16)).listen(
-      (_) => setState(() => time += (pi * 2) / drawingSample.length),
+    Stream<void>.periodic(const Duration(milliseconds: 32)).listen(
+      (_) => setState(() => time += (pi * 2) / flutterLogo.length),
     );
   }
 
@@ -46,7 +48,7 @@ class _MainAppState extends State<MainApp> {
             painter: FourierTransformRenderer(
               time: time,
               fourier: fourier,
-              waveLength: drawingSample.length,
+              waveLength: flutterLogo.length,
             ),
           ),
         ),

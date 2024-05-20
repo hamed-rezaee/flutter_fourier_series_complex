@@ -44,7 +44,7 @@ class FourierTransformRenderer extends CustomPainter {
         Offset(position.dx, position.dy),
         wave.first,
         Paint()
-          ..color = Colors.white.withOpacity(0.2)
+          ..color = Colors.white.withOpacity(0.5)
           ..strokeWidth = 1,
       )
       ..restore();
@@ -86,7 +86,7 @@ class FourierTransformRenderer extends CustomPainter {
           Offset(prevX, prevY),
           amplitude,
           Paint()
-            ..color = Colors.white.withOpacity(0.1)
+            ..color = Colors.white.withOpacity(0.5)
             ..style = PaintingStyle.stroke,
         )
         ..drawLine(
