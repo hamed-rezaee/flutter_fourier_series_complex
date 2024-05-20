@@ -22,9 +22,9 @@ class FourierTransformRenderer extends CustomPainter {
       ..save()
       ..translate(50, 200);
 
-    final vx = drwaEpicycles(canvas, 300, 50, 0, fourier);
+    final position = drwaEpicycles(canvas, 300, 50, 0, fourier);
 
-    wave.insert(0, Offset(vx.dx, vx.dy) + const Offset(0, 300));
+    wave.insert(0, Offset(position.dx, position.dy) + const Offset(0, 300));
 
     if (wave.length > waveLength) {
       wave.removeLast();
@@ -41,7 +41,7 @@ class FourierTransformRenderer extends CustomPainter {
           ..strokeWidth = 2,
       )
       ..drawLine(
-        Offset(vx.dx, vx.dy),
+        Offset(position.dx, position.dy),
         wave.first,
         Paint()
           ..color = Colors.white.withOpacity(0.2)
