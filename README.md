@@ -1,3 +1,5 @@
-# flutter_fourier_series
+# Flutter Fourier Transform
 
-A new Flutter project.
+Draws a Fourier Transform of a given input signal.
+
+![Fourier Transform](./fourier_transform.gif)
