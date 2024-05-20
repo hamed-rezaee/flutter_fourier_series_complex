@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 
 class Renderer extends CustomPainter {
   const Renderer({
-    required this.times,
-    this.sinWavesCount = 5,
+    required this.time,
+    this.sinWavesCount = 6,
+    this.waveLength = 250,
   });
 
-  final List<double> times;
+  final double time;
   final double sinWavesCount;
+  final int waveLength;
 
   static List<double> wave = [];
 
@@ -25,22 +27,19 @@ class Renderer extends CustomPainter {
       Paint()..color = Colors.black,
     );
 
-    if (times.isEmpty) {
-      return;
-    }
-
     canvas.save();
     canvas.translate(100, 200);
 
     for (var i = 0; i < sinWavesCount; i++) {
+      final n = i * 2 + 1;
+
       final prevX = x;
       final prevY = y;
-      final n = i * 2 + 1;
 
       radius = 100 * (4 / (math.pi * n));
 
-      x += radius * math.cos(n * times.first);
-      y += radius * math.sin(n * times.first);
+      x += radius * math.cos(n * time);
+      y += radius * math.sin(n * time);
 
       canvas.drawCircle(
         Offset(prevX + 200, prevY),
@@ -65,7 +64,7 @@ class Renderer extends CustomPainter {
 
     wave.insert(0, y);
 
-    if (wave.length > 250) {
+    if (wave.length > waveLength) {
       wave.removeLast();
     }
 

@@ -12,24 +12,13 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   double time = 0;
-  final List<double> times = [];
 
   @override
   void initState() {
     super.initState();
 
-    Stream.periodic(const Duration(milliseconds: 16)).listen(
-      (_) => setState(
-        () {
-          times.insert(0, time);
-          time += 0.03;
-
-          if (times.length > 300) {
-            times.removeLast();
-          }
-        },
-      ),
-    );
+    Stream.periodic(const Duration(milliseconds: 16))
+        .listen((_) => setState(() => time += 0.03));
   }
 
   @override
@@ -37,7 +26,7 @@ class _MainAppState extends State<MainApp> {
         home: Scaffold(
           body: CustomPaint(
             size: const Size(900, 400),
-            painter: Renderer(times: times),
+            painter: Renderer(time: time),
           ),
         ),
       );
