@@ -17,7 +17,7 @@ class _MainAppState extends State<MainApp> {
   void initState() {
     super.initState();
 
-    Stream.periodic(const Duration(milliseconds: 16))
+    Stream<void>.periodic(const Duration(milliseconds: 16))
         .listen((_) => setState(() => time += 0.03));
   }
 
