@@ -3,8 +3,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class Renderer extends CustomPainter {
-  const Renderer({
+class FourierSeriesRenderer extends CustomPainter {
+  const FourierSeriesRenderer({
     required this.time,
     this.sinWavesCount = 6,
     this.waveLength = 250,
@@ -90,5 +90,6 @@ class Renderer extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
+  bool shouldRepaint(FourierSeriesRenderer oldDelegate) =>
+      oldDelegate.time != time || oldDelegate.sinWavesCount != sinWavesCount;
 }

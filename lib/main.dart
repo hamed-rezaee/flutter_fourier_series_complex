@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fourier_series/renderer.dart';
+import 'package:flutter_fourier_series/fourier_series_renderer.dart';
 
 void main() => runApp(const MainApp());
 
@@ -26,7 +26,7 @@ class _MainAppState extends State<MainApp> {
         home: Scaffold(
           body: CustomPaint(
             size: const Size(900, 400),
-            painter: Renderer(time: time),
+            painter: FourierSeriesRenderer(time: time),
           ),
         ),
       );
