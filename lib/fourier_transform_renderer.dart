@@ -20,11 +20,11 @@ class FourierTransformRenderer extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     canvas
       ..save()
-      ..translate(50, 200);
+      ..translate(200, 200);
 
-    final position = drwaEpicycles(canvas, 300, 50, 0, fourier);
+    final position = drwaEpicycles(canvas, 0, 0, 0, fourier);
 
-    wave.insert(0, Offset(position.dx, position.dy) + const Offset(0, 300));
+    wave.insert(0, Offset(position.dx, position.dy) + const Offset(-75, -75));
 
     if (wave.length > waveLength) {
       wave.removeLast();
@@ -36,7 +36,7 @@ class FourierTransformRenderer extends CustomPainter {
           ..moveTo(wave.first.dx, wave.first.dy)
           ..addPolygon(wave, false),
         Paint()
-          ..color = Colors.red
+          ..color = Colors.orange
           ..style = PaintingStyle.stroke
           ..strokeWidth = 2,
       )
@@ -48,16 +48,6 @@ class FourierTransformRenderer extends CustomPainter {
           ..strokeWidth = 1,
       )
       ..restore();
-  }
-
-  Offset epicycles(
-    Canvas canvas,
-    double x,
-    double y,
-    double rotation,
-    List<DFTResult> fourier,
-  ) {
-    return Offset.zero;
   }
 
   Offset drwaEpicycles(
